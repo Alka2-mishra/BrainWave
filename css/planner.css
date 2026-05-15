@@ -8,6 +8,15 @@
 	--orange: #fb923c;
 }
 
+body.dark-mode {
+	--bg: #0f172a;
+	--ink: #e2e8f0;
+	--muted: #94a3b8;
+	--line: #334155;
+	--surface: #1e293b;
+	--teal: #14b8a6;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -44,6 +53,27 @@ body {
 .back {
 	color: var(--teal);
 	font-weight: 700;
+}
+
+.theme-toggle {
+	background: none;
+	border: none;
+	font-size: 22px;
+	cursor: pointer;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+	background-color: rgba(15, 118, 110, 0.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+	background-color: rgba(20, 184, 166, 0.15);
 }
 
 .planner-shell {

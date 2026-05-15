@@ -8,6 +8,15 @@
 	--orange: #fb923c;
 }
 
+body.dark-mode {
+	--bg: #0f172a;
+	--ink: #e2e8f0;
+	--muted: #94a3b8;
+	--line: #334155;
+	--surface: #1e293b;
+	--teal: #14b8a6;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -44,6 +53,27 @@ body {
 .back {
 	color: var(--teal);
 	font-weight: 700;
+}
+
+.theme-toggle {
+	background: none;
+	border: none;
+	font-size: 22px;
+	cursor: pointer;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+	background-color: rgba(15, 118, 110, 0.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+	background-color: rgba(20, 184, 166, 0.15);
 }
 
 .quiz-shell {
@@ -84,7 +114,7 @@ body {
 	width: 100%;
 	border: 1px solid var(--line);
 	border-radius: 12px;
-	background: #fff;
+	background: var(--surface);
 	color: var(--ink);
 	font: inherit;
 	padding: 12px 13px;
@@ -95,7 +125,7 @@ body {
 	width: 100%;
 	border: 1px solid var(--line);
 	border-radius: 12px;
-	background: #fff;
+	background: var(--surface);
 	color: var(--ink);
 	font: inherit;
 	padding: 12px 13px;
@@ -115,8 +145,14 @@ body {
 
 .generator-controls input:focus,
 .generator-controls select:focus {
-	border-color: rgba(15, 118, 110, 0.55);
+	border-color: var(--teal);
 	box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+body.dark-mode .generator-controls input:focus,
+body.dark-mode .generator-controls select:focus {
+	border-color: #14b8a6;
+	box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
 }
 
 .helper-text {
@@ -177,6 +213,12 @@ h2 {
 	border-radius: 999px;
 }
 
+body.dark-mode .question-head span {
+	background: rgba(20, 184, 166, 0.15);
+	border-color: rgba(20, 184, 166, 0.3);
+	color: #14b8a6;
+}
+
 .options {
 	margin-top: 14px;
 	display: grid;
@@ -185,12 +227,13 @@ h2 {
 
 .options button {
 	text-align: left;
-	background: #fff;
+	background: var(--surface);
 	border: 1px solid var(--line);
 	border-radius: 12px;
 	padding: 12px 14px;
 	font: inherit;
 	cursor: pointer;
+	color: var(--ink);
 	transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
@@ -200,18 +243,39 @@ h2 {
 }
 
 .options button.selected {
-	border-color: var(--violet);
-	background: var(--violet-soft);
+	border-color: #7c3aed;
+	background: #ede9fe;
+	color: var(--ink);
+}
+
+body.dark-mode .options button.selected {
+	background: #5b21b6;
+	border-color: #a78bfa;
+	color: #e2e8f0;
 }
 
 .options button.correct {
 	border-color: #16a34a;
 	background: #dcfce7;
+	color: var(--ink);
+}
+
+body.dark-mode .options button.correct {
+	background: #15803d;
+	border-color: #4ade80;
+	color: #f0fdf4;
 }
 
 .options button.wrong {
 	border-color: #ef4444;
 	background: #fee2e2;
+	color: var(--ink);
+}
+
+body.dark-mode .options button.wrong {
+	background: #7f1d1d;
+	border-color: #f87171;
+	color: #fecaca;
 }
 
 .feedback {
@@ -220,7 +284,13 @@ h2 {
 	border-radius: 14px;
 	padding: 12px 14px;
 	border: 1px dashed var(--line);
-	background: #f8fbff;
+	background: var(--surface);
+	color: var(--muted);
+}
+
+body.dark-mode .feedback {
+	background: #2d3748;
+	border-color: var(--line);
 	color: var(--muted);
 }
 
@@ -244,7 +314,7 @@ h2 {
 }
 
 .actions .secondary {
-	background: #fff;
+	background: var(--surface);
 	border-color: var(--line);
 	color: var(--ink);
 }
@@ -260,6 +330,10 @@ h2 {
 	z-index: 50;
 }
 
+body.dark-mode .result-overlay {
+	background: rgba(0, 0, 0, 0.75);
+}
+
 .result-overlay.open {
 	display: flex;
 }
@@ -267,11 +341,16 @@ h2 {
 .result-modal {
 	position: relative;
 	width: min(520px, 100%);
-	background: linear-gradient(170deg, #ffffff, #f8fbff);
+	background: linear-gradient(170deg, var(--surface), #f8fbff);
 	border: 1px solid var(--line);
 	border-radius: 22px;
 	padding: 24px;
 	box-shadow: 0 30px 60px rgba(15, 23, 42, 0.28);
+}
+
+body.dark-mode .result-modal {
+	background: linear-gradient(170deg, #1e293b, #111827);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 .result-close {
@@ -287,6 +366,11 @@ h2 {
 	font-size: 1.2rem;
 	font-weight: 700;
 	cursor: pointer;
+}
+
+body.dark-mode .result-close {
+	background: #334155;
+	color: var(--ink);
 }
 
 .result-eyebrow {
@@ -316,7 +400,7 @@ h2 {
 .result-stats div {
 	border-radius: 16px;
 	padding: 14px;
-	background: #fff;
+	background: var(--surface);
 	border: 1px solid var(--line);
 	text-align: center;
 }

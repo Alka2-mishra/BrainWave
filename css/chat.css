@@ -13,6 +13,16 @@
   --shadow: 0 24px 50px rgba(15, 23, 42, 0.15);
 }
 
+body.dark-mode {
+  --bg: #0f172a;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --surface: #1e293b;
+  --line: #334155;
+  --teal: #14b8a6;
+  --shadow: 0 24px 50px rgba(2, 6, 23, 0.5);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,15 +40,85 @@ body {
     radial-gradient(circle at 5% 8%, rgba(15, 118, 110, 0.16), transparent 34%),
     radial-gradient(circle at 94% 95%, rgba(109, 40, 217, 0.2), transparent 35%),
     var(--bg);
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 22px;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.dashboard-link {
+  text-decoration: none;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.dashboard-link:hover {
+  color: var(--ink);
+}
+
+body.dark-mode .dashboard-link {
+  color: #14b8a6;
+}
+
+body.dark-mode .dashboard-link:hover {
+  color: var(--ink);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(15, 118, 110, 0.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: rgba(20, 184, 166, 0.15);
+}
+
+.page-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 18px;
 }
 
 .chat-container {
   width: min(920px, 100%);
   height: min(86vh, 760px);
-  background: linear-gradient(175deg, #ffffff, #f9fcff);
+  background: linear-gradient(175deg, var(--surface), #f9fcff);
   border: 1px solid var(--line);
   border-radius: 22px;
   box-shadow: var(--shadow);
@@ -68,6 +148,12 @@ body {
   z-index: 2;
 }
 
+body.dark-mode .chat-container::before {
+  color: var(--ink);
+  background: rgba(30, 41, 59, 0.90);
+  border-bottom-color: var(--line);
+}
+
 .chat-box {
   margin-top: 54px;
   overflow-y: auto;
@@ -83,13 +169,13 @@ body {
 }
 
 .chat-box::-webkit-scrollbar-track {
-  background: #eff6ff;
+  background: var(--surface);
 }
 
 .chat-box::-webkit-scrollbar-thumb {
-  background: #bfd2ef;
+  background: var(--line);
   border-radius: 999px;
-  border: 2px solid #eff6ff;
+  border: 2px solid var(--surface);
 }
 
 .message {
@@ -113,10 +199,16 @@ body {
 
 .bot {
   align-self: flex-start;
-  color: #0f172a;
-  background: linear-gradient(132deg, #ffffff, var(--teal-soft));
-  border: 1px solid #bde7d8;
+  color: var(--ink);
+  background: linear-gradient(132deg, var(--surface), var(--teal-soft));
+  border: 1px solid var(--line);
   border-bottom-left-radius: 6px;
+}
+
+body.dark-mode .bot {
+  background: linear-gradient(132deg, #2d3748, #1a5f54);
+  border-color: var(--line);
+  color: var(--ink);
 }
 
 .input-area {
@@ -125,7 +217,12 @@ body {
   gap: 10px;
   border-top: 1px solid var(--line);
   padding: 14px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface);
+}
+
+body.dark-mode .input-area {
+  background: rgba(30, 41, 59, 0.95);
+  border-top-color: var(--line);
 }
 
 .input-area input {
@@ -135,18 +232,23 @@ body {
   padding: 12px 14px;
   font: inherit;
   color: var(--ink);
-  background: #ffffff;
+  background: var(--surface);
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-area input:focus {
-  border-color: #75a7e6;
-  box-shadow: 0 0 0 3px rgba(117, 167, 230, 0.2);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+}
+
+body.dark-mode .input-area input:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
 }
 
 .input-area input::placeholder {
-  color: #94a3b8;
+  color: var(--muted);
 }
 
 .input-area button {
@@ -170,6 +272,10 @@ body {
 
 .input-area button:active {
   transform: translateY(0);
+}
+
+body.dark-mode .input-area button {
+  box-shadow: 0 10px 20px rgba(20, 184, 166, 0.2);
 }
 
 @keyframes msgIn {
