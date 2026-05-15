@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>BrainWave Quiz</title>
+	<link rel="stylesheet" href="css/quiz.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="topbar">
+		<a class="logo" href="dashboard.html">BrainWave</a>
+		<a class="back" href="dashboard.html">Back to dashboard</a>
+	</header>
+
+	<main class="quiz-shell">
+		<section class="card intro">
+			<p class="eyebrow">Adaptive Practice</p>
+			<h1>Quiz Generator</h1>
+			<p>Type any subject or chapter name, generate a quiz, and practice with instant feedback.</p>
+
+			<div class="generator-controls">
+				<label>
+					<span>Subject / chapter</span>
+					<input id="subjectInput" type="text" placeholder="Example: Physics - projectile motion" />
+				</label>
+
+				<label>
+					<span>Questions</span>
+					<input id="countInput" type="number" min="1" max="10" value="5" placeholder="5" />
+				</label>
+
+				<button type="button" id="generateQuiz" class="primary generate-btn">Generate Quiz</button>
+			</div>
+
+			<p class="helper-text">Tip: enter a chapter name like “cell biology”, “algebra”, or “World War II”.</p>
+		</section>
+
+		<section class="card question">
+			<div class="question-head">
+				<h2 id="questionCount">Question 1 of 5</h2>
+				<span id="quizTopic">Physics</span>
+			</div>
+
+			<p id="questionText">Click “Generate Quiz” to load your practice set.</p>
+
+			<div class="options" id="options"></div>
+
+			<div class="feedback" id="feedback">Your quiz will appear here once generated.</div>
+
+			<div class="actions">
+				<button type="button" class="primary" id="submitAnswer">Submit</button>
+				<button type="button" class="secondary" id="nextQuestion">Next Question</button>
+			</div>
+		</section>
+	</main>
+
+	<div class="result-overlay" id="resultOverlay" aria-hidden="true">
+		<div class="result-modal" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+			<button type="button" class="result-close" id="closeResult" aria-label="Close result">×</button>
+			<p class="result-eyebrow">Quiz Result</p>
+			<h2 id="resultTitle">Your score is ready</h2>
+			<p id="resultSummary"></p>
+
+			<div class="result-stats">
+				<div>
+					<span>Correct</span>
+					<strong id="resultCorrect">0</strong>
+				</div>
+				<div>
+					<span>Total</span>
+					<strong id="resultTotal">0</strong>
+				</div>
+				<div>
+					<span>Percentage</span>
+					<strong id="resultPercent">0%</strong>
+				</div>
+			</div>
+
+			<button type="button" class="primary result-action" id="restartQuiz">Generate New Quiz</button>
+		</div>
+	</div>
+
+	<script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;500;600;700&display=swap");
+
+:root {
+	--bg: #f4f8ff;
+	--ink: #0f172a;
+	--muted: #5b6a82;
+	--surface: #ffffff;
+	--line: #d6e0ef;
+	--teal: #0f766e;
+	--violet: #6d28d9;
+	--orange: #f97316;
+	--shadow: 0 24px 48px rgba(15, 23, 42, 0.14);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Sora", sans-serif;
+	color: var(--ink);
+	min-height: 100vh;
+	padding: 22px;
+	background:
+		radial-gradient(circle at 10% 8%, rgba(15, 118, 110, 0.14), transparent 32%),
+		radial-gradient(circle at 93% 92%, rgba(109, 40, 217, 0.22), transparent 37%),
+		var(--bg);
+	display: grid;
+	place-items: center;
+}
+
+.notes-container {
+	width: min(860px, 100%);
+	border: 1px solid var(--line);
+	border-radius: 24px;
+	padding: clamp(18px, 4vw, 30px);
+	background: linear-gradient(170deg, #ffffff, #f8fbff);
+	box-shadow: var(--shadow);
+	position: relative;
+	overflow: hidden;
+}
+
+.notes-container::before {
+	content: "";
+	position: absolute;
+	width: 170px;
+	height: 170px;
+	right: -58px;
+	top: -62px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(249, 115, 22, 0.24), rgba(249, 115, 22, 0));
+	pointer-events: none;
+}
+
+h1 {
+	font-family: "Space Grotesk", sans-serif;
+	font-size: clamp(1.8rem, 4vw, 2.7rem);
+	line-height: 1.1;
+	margin-bottom: 6px;
+}
+
+h1::after {
+	content: "Capture fast. Revise smart.";
+	display: block;
+	margin-top: 8px;
+	font-family: "Sora", sans-serif;
+	font-size: 0.94rem;
+	font-weight: 500;
+	color: var(--muted);
+}
+
+#noteInput {
+	margin-top: 22px;
+	width: 100%;
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	background: #ffffff;
+	color: var(--ink);
+	font: inherit;
+	padding: 13px 14px;
+	outline: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#noteInput:focus {
+	border-color: #7aa7e6;
+	box-shadow: 0 0 0 3px rgba(122, 167, 230, 0.18);
+}
+
+#noteInput::placeholder {
+	color: #93a3bb;
+}
+
+#addNote {
+	margin-top: 12px;
+	border: none;
+	border-radius: 12px;
+	background: linear-gradient(120deg, var(--teal), #14b8a6);
+	color: #ffffff;
+	font: inherit;
+	font-weight: 700;
+	padding: 11px 18px;
+	cursor: pointer;
+	box-shadow: 0 12px 24px rgba(15, 118, 110, 0.26);
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#addNote:hover {
+	transform: translateY(-2px);
+	filter: brightness(1.03);
+}
+
+#addNote:active {
+	transform: translateY(0);
+}
+
+#notesList {
+	margin-top: 18px;
+	display: grid;
+	gap: 10px;
+}
+
+#notesList:empty {
+	border: 1px dashed var(--line);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.75);
+	min-height: 120px;
+	display: grid;
+	place-items: center;
+}
+
+#notesList:empty::before {
+	content: "No notes yet. Add your first study idea.";
+	color: var(--muted);
+	font-size: 0.94rem;
+}
+
+#notesList > * {
+	background: linear-gradient(135deg, #ffffff, #ecfeff);
+	border: 1px solid #bfe9df;
+	border-radius: 14px;
+	padding: 11px 13px;
+	color: var(--ink);
+	box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+	position: relative;
+	overflow-wrap: anywhere;
+}
+
+#notesList > *:nth-child(even) {
+	background: linear-gradient(135deg, #ffffff, #f1f5ff);
+	border-color: #d7d8ff;
+}
+
+#notesList > *::before {
+	content: "•";
+	color: var(--violet);
+	font-weight: 700;
+	margin-right: 8px;
+}
+
+@media (max-width: 640px) {
+	body {
+		padding: 12px;
+	}
+
+	.notes-container {
+		border-radius: 16px;
+		padding: 16px;
+	}
+
+	#addNote {
+		width: 100%;
+	}
+}

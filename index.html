@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainWave AI</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>hello</h1>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="logo" href="index.html">BrainWave</a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+        <a href="dashboard.html" class="btn ghost">Open Dashboard</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text reveal-up">
+        <p class="eyebrow">AI-Powered Learning Companion</p>
+        <h1>Turn chaotic study hours into a clear, winning routine.</h1>
+        <p>
+          BrainWave combines intelligent chat, adaptive quizzes, organized notes,
+          and a practical planner so your focus stays on understanding, not juggling tools.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="dashboard.html" class="btn primary">Start Studying</a>
+          <a href="#features" class="btn secondary">View Features</a>
+        </div>
+
+        <div class="hero-stats">
+          <article>
+            <h3>4x</h3>
+            <p>faster revision loops</p>
+          </article>
+          <article>
+            <h3>24/7</h3>
+            <p>AI assistant availability</p>
+          </article>
+          <article>
+            <h3>1 place</h3>
+            <p>for all study workflows</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal-up-delay">
+        <div class="panel-head">
+          <span>Today</span>
+          <strong>Focus Sprint</strong>
+        </div>
+        <div class="timeline-item">
+          <h4>08:00 - 09:30</h4>
+          <p>Physics chapter summary with AI chat support.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>10:00 - 10:30</h4>
+          <p>Quick 15-question quiz and instant feedback.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>18:00 - 18:45</h4>
+          <p>Review notes and schedule tomorrow priorities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section-head">
+        <p class="eyebrow">Core Features</p>
+        <h2>A complete study operating system</h2>
+      </div>
+
+      <div class="feature-grid">
+        <a class="feature-card" href="chat.html">
+          <h3>AI Chat Assistant</h3>
+          <p>Ask complex questions and break topics down in seconds with focused explanations.</p>
+          <span>Open chat</span>
+        </a>
+
+        <a class="feature-card" href="quiz.html">
+          <h3>Quiz Generator</h3>
+          <p>Practice with quick adaptive MCQs and get immediate confidence scores.</p>
+          <span>Take quiz</span>
+        </a>
+
+        <a class="feature-card" href="notes.html">
+          <h3>Notes Manager</h3>
+          <p>Capture, categorize, and retrieve notes from one distraction-free workspace.</p>
+          <span>Manage notes</span>
+        </a>
+
+        <a class="feature-card" href="planner.html">
+          <h3>Study Planner</h3>
+          <p>Build clear weekly plans with realistic sessions and track progress visibly.</p>
+          <span>Open planner</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="workflow" id="workflow">
+      <div class="section-head">
+        <p class="eyebrow">How It Flows</p>
+        <h2>Simple cycle, stronger outcomes</h2>
+      </div>
+      <div class="workflow-steps">
+        <article>
+          <h3>01. Plan</h3>
+          <p>Define priorities and daily goals in minutes.</p>
+        </article>
+        <article>
+          <h3>02. Learn</h3>
+          <p>Use AI chat to understand tricky concepts quickly.</p>
+        </article>
+        <article>
+          <h3>03. Test</h3>
+          <p>Run quizzes and close weak spots right away.</p>
+        </article>
+        <article>
+          <h3>04. Retain</h3>
+          <p>Solidify memory with organized and searchable notes.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>BrainWave</p>
+    <a href="dashboard.html">Go to dashboard</a>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
+
 </html>
