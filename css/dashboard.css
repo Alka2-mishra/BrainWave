@@ -97,6 +97,30 @@ body.dark-mode .sidebar h2 {
   color: #f1f5f9;
 }
 
+.sidebar-logo {
+  display: block;
+  margin: 0 0 20px;
+  color: #f8fafc;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sidebar-logo:hover {
+  color: #14b8a6;
+}
+
+body.dark-mode .sidebar-logo {
+  color: #f1f5f9;
+}
+
+body.dark-mode .sidebar-logo:hover {
+  color: #14b8a6;
+}
+
 .sidebar ul {
   list-style: none;
   margin: 0;
