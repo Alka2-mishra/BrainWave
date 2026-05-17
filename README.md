@@ -65,8 +65,7 @@ BrainWave/
 Clone the repository:
 
 ```bash
-[git clone https://github.com/your-username/BrainWave.git
-```](https://github.com/Alka2-mishra/BrainWave)
+https://github.com/Alka2-mishra/BrainWave
 
 Navigate to the project folder:
 
