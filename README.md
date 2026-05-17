@@ -9,7 +9,7 @@ A modern and responsive AI-inspired landing page built using HTML, CSS, and Java
 Add your deployed live link here:
 
 ```bash
-[https://your-live-link.com](https://alka2-mishra.github.io/BrainWave/index.html)
+https://alka2-mishra.github.io/BrainWave/index.html
 ```
 
 ---
@@ -128,7 +128,7 @@ This project is licensed under the MIT License.
 
 **Alka Mishra**
 
-GitHub: [https://github.com/Alka2-mishra](https://github.com/Alka2-mishra)
+GitHub: https://github.com/Alka2-mishra
 
 ---
 
